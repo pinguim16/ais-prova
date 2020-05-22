@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20200521-1" author="cesar.araujo">
+        <createTable tableName="filme_lingua">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="filme_id" type="bigint"/>
+            <column name="lingua_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20200521-2" author="cesar.araujo">
+        <createIndex
+                indexName="idx_filme_lingua"
+                tableName="filme_lingua"
+                unique="true">
+            <column name="id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
