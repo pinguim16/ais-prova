@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20200521-1" author="cesar.araujo">
+        <createTable tableName="filme">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="adulto" type="boolean"/>
+            <column name="image_path" type="varchar(255)"/>
+            <column name="custo" type="bigint"/>
+            <column name="homepage" type="varchar(255)"/>
+            <column name="imdb_id" type="varchar(9)"/>
+            <column name="lingua_original" type="varchar(25)"/>
+            <column name="titulo_original" type="varchar(150)"/>
+            <column name="enredo" type="char"/>
+            <column name="popularidade" type="double"/>
+            <column name="poster_path" type="varchar(255)"/>
+            <column name="data_lancamento" type="date"/>
+            <column name="lucro" type="int"/>
+            <column name="duracao" type="int"/>
+            <column name="status" type="varchar(50)"/>
+            <column name="tagline" type="varchar(255)"/>
+            <column name="titulo" type="varchar(255)"/>
+            <column name="video" type="boolean"/>
+            <column name="media_votos" type="integer"/>
+            <column name="total_votos" type="integer"/>
+            <column name="id_externo" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20200521-2" author="cesar.araujo">
+        <createIndex
+                indexName="idx_filme"
+                tableName="filme"
+                unique="true">
+            <column name="id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
